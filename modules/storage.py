@@ -21,7 +21,7 @@ JSON_PATH = DATA_DIR / "app.json"
 PERSISTENCE_BACKEND = os.getenv("PERSISTENCE_BACKEND", "")
 MONGODB_URI = os.getenv(
     "MONGODB_URI",
-    "mongodb+srv://mohammedfouly:bousia11BB@mongodbcleuster.regz0gp.mongodb.net/?appName=MongoDbCleuster",
+    "mongodb+srv://mohammedfouly:Mpc135889@mpcleuster.cyj8gzr.mongodb.net/",
 )
 MONGODB_DB = os.getenv("MONGODB_DB", "DrugInventory")
 
