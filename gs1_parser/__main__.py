@@ -14,7 +14,6 @@ Options:
 import argparse
 import json
 import sys
-from pathlib import Path
 from typing import Optional
 
 from .parser import parse_gs1, ParseOptions, ParseResult
@@ -181,12 +180,6 @@ def main(argv: Optional[list] = None) -> int:
     )
 
     parser.add_argument(
-        '--lookup-db',
-        default=None,
-        help='Path to gtin_database.json (defaults to package data file)'
-    )
-    
-    parser.add_argument(
         '--no-normalize',
         action='store_true',
         help='Disable separator normalization'
@@ -217,12 +210,11 @@ def main(argv: Optional[list] = None) -> int:
 
         if args.lookup:
             gtin_value = output.get("GTIN") or output.get("GTIN Code")
-            db_path = Path(args.lookup_db) if args.lookup_db else None
 
             if not gtin_value:
                 output["_lookup_error"] = "GTIN not found in parsed result"
             else:
-                record = lookup_gtin(gtin_value, db_path=db_path)
+                record = lookup_gtin(gtin_value)
                 if record:
                     for k, v in record.items():
                         if k == "GTIN Code":
