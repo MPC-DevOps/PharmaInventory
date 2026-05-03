@@ -8,7 +8,7 @@ from typing import Dict
 
 
 DEFAULT_USERS = {
-    "admin": "admin",
+    "admin": "admin12345",
 }
 
 
